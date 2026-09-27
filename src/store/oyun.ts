@@ -18,6 +18,22 @@ function soruSec(kategori?: Kategori, zorluk?: string): Soru[] {
   return sorulariKaristir(filtre);
 }
 
+function milyonerSoruSec(kategori?: Kategori): Soru[] {
+  let filtre = kategori ? sorular.filter(s => s.kategori === kategori) : [...sorular];
+  const cokKolaylar = sorulariKaristir(filtre.filter(s => s.zorluk === 'cokKolay'));
+  const kolaylar = sorulariKaristir(filtre.filter(s => s.zorluk === 'kolay'));
+  const ortalar = sorulariKaristir(filtre.filter(s => s.zorluk === 'orta'));
+  const zorlar = sorulariKaristir(filtre.filter(s => s.zorluk === 'zor'));
+  const cokZorlar = sorulariKaristir(filtre.filter(s => s.zorluk === 'cokZor'));
+  return [
+    ...cokKolaylar.slice(0, 3),
+    ...kolaylar.slice(0, 2),
+    ...ortalar.slice(0, 5),
+    ...zorlar.slice(0, 4),
+    ...cokZorlar.slice(0, 1),
+  ];
+}
+
 type OyunStore = {
   durum: OyunDurumu;
   milyonerBaslat: (kategori?: Kategori) => void;
@@ -52,13 +68,13 @@ export const oyunStore = create<OyunStore>((set, get) => ({
   durum: baslangicDurumu,
 
   milyonerBaslat: (kategori) => {
-    const sorularList = soruSec(kategori);
+    const sorularList = milyonerSoruSec(kategori);
     set({
       durum: {
         ...baslangicDurumu,
         aktif: true,
         mod: 'milyoner',
-        sorular: sorularList.slice(0, 15),
+        sorular: sorularList,
         toplamSoru: 15,
         sure: 30,
         bitisNoktalari: MILYONER_BITIS_NOKTALARI,

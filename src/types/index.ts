@@ -10,7 +10,7 @@ export type Kategori =
   | 'Tarih & Kültür'
   | 'Bilim & Felsefe';
 
-export type Zorluk = 'kolay' | 'orta' | 'zor';
+export type Zorluk = 'cokKolay' | 'kolay' | 'orta' | 'zor' | 'cokZor';
 
 export type Soru = {
   id: string;
