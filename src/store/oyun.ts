@@ -11,11 +11,26 @@ function sorulariKaristir(s: Soru[]): Soru[] {
   return arr;
 }
 
+function cevaplariKaristir(soru: Soru): Soru {
+  const indices = [0, 1, 2, 3];
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i], indices[j]] = [indices[j], indices[i]];
+  }
+  const yeniSecenekler = indices.map(i => soru.secenekler[i]) as [string, string, string, string];
+  const yeniDogruCevap = indices.indexOf(soru.dogruCevap);
+  return { ...soru, secenekler: yeniSecenekler, dogruCevap: yeniDogruCevap };
+}
+
+function sorulariHazirla(sorular: Soru[]): Soru[] {
+  return sorulariKaristir(sorular).map(s => cevaplariKaristir(s));
+}
+
 function soruSec(kategori?: Kategori, zorluk?: string): Soru[] {
   let filtre = [...sorular];
   if (kategori) filtre = filtre.filter(s => s.kategori === kategori);
   if (zorluk) filtre = filtre.filter(s => s.zorluk === zorluk);
-  return sorulariKaristir(filtre);
+  return sorulariHazirla(filtre);
 }
 
 function milyonerSoruSec(kategori?: Kategori): Soru[] {
@@ -25,13 +40,14 @@ function milyonerSoruSec(kategori?: Kategori): Soru[] {
   const ortalar = sorulariKaristir(filtre.filter(s => s.zorluk === 'orta'));
   const zorlar = sorulariKaristir(filtre.filter(s => s.zorluk === 'zor'));
   const cokZorlar = sorulariKaristir(filtre.filter(s => s.zorluk === 'cokZor'));
-  return [
+  const secilen = [
     ...cokKolaylar.slice(0, 3),
     ...kolaylar.slice(0, 2),
     ...ortalar.slice(0, 5),
     ...zorlar.slice(0, 4),
     ...cokZorlar.slice(0, 1),
   ];
+  return sorulariHazirla(secilen);
 }
 
 type OyunStore = {
