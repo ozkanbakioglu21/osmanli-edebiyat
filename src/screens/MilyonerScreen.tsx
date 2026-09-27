@@ -212,7 +212,7 @@ export default function MilyonerScreen() {
         {[...Array(15)].map((_, i) => (
           <View key={i} style={[styles.basamak, i === durum.mevcutSoruIndex && styles.basamakAktif, (i === 4 || i === 9) && styles.basamakGuvenli]}>
             <Text style={[styles.basamakMetin, i === durum.mevcutSoruIndex && styles.basamakAktifMetin]}>
-              {15 - i}. {durum.bitisNoktalari ? durum.bitisNoktalari[15 - i]?.toLocaleString() : ''}
+              {i + 1}. {durum.bitisNoktalari ? durum.bitisNoktalari[i + 1]?.toLocaleString() : ''}
             </Text>
           </View>
         ))}
