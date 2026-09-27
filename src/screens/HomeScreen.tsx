@@ -7,7 +7,7 @@ export default function HomeScreen() {
   const { kullanici } = kullaniciStore();
 
   const modlar = [
-    { baslik: 'Milyoner Modu', aciklama: '15 soru, 3 joker, 1M puana kadar', icon: 'trophy' as const, renk: '#FFD700' },
+    { baslik: 'Milyoner Modu', aciklama: '15 soru, 3 joker, 10M puana kadar', icon: 'trophy' as const, renk: '#FFD700' },
     { baslik: 'Bilgi Yolculuğu', aciklama: 'Süresiz, bilgi kartları ile öğren', icon: 'book' as const, renk: '#4FC3F7' },
     { baslik: 'Hız Tepkisi', aciklama: '60 sn, mümkün olduğunca çok soru', icon: 'flash' as const, renk: '#FF5722' },
     { baslik: 'Kategori Masterı', aciklama: 'Kategorilere göre puan topla', icon: 'grid' as const, renk: '#8BC34A' },

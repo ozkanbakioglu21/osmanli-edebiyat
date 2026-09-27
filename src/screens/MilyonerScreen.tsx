@@ -51,7 +51,7 @@ export default function MilyonerScreen() {
         <View style={styles.baslikAlani}>
           <Ionicons name="trophy" size={40} color="#FFD700" />
           <Text style={styles.baslik}>Milyoner Modu</Text>
-          <Text style={styles.aciklama}>15 soru, 3 joker, 1M puana kadar yarış!</Text>
+          <Text style={styles.aciklama}>15 soru, 3 joker, 10M puana kadar yarış!</Text>
         </View>
 
         <Text style={styles.kategoriBaslik}>Kategori Seç</Text>
@@ -134,7 +134,7 @@ export default function MilyonerScreen() {
                     puanEkle(durum.puan + (durum.bitisNoktalari?.[15] || 0));
                     oyunSayisiEkle();
                     kazanmaEkle();
-                    Alert.alert('Tebrikler!', '1 Milyon Puan Kazandınız! 🏆');
+                    Alert.alert('Tebrikler!', '10 Milyon Puan Kazandınız! 🏆');
                     oyunuBitir();
                   } else {
                     sonrakiSoru();
