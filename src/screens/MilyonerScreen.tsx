@@ -59,6 +59,8 @@ export default function MilyonerScreen() {
   const [cevaplandi, setCevaplandi] = useState(false);
   const [secilenCevap, setSecilenCevap] = useState<number | null>(null);
   const [dogruGoster, setDogruGoster] = useState(false);
+  const [oyunBitti, setOyunBitti] = useState(false);
+  const [kazandin, setKazandin] = useState(false);
   const sureRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const revealRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -77,8 +79,11 @@ export default function MilyonerScreen() {
 
   useEffect(() => {
     if (durum.sure === 0 && durum.aktif && durum.mod === 'milyoner') {
+      puanEkle(durum.puan);
+      oyunSayisiEkle();
+      setKazandin(false);
+      setOyunBitti(true);
       oyunuBitir();
-      Alert.alert('Süre Doldu!', `Kazanılan puan: ${durum.puan.toLocaleString()}`);
     }
   }, [durum.sure]);
 
@@ -97,6 +102,30 @@ export default function MilyonerScreen() {
   }, [soruSirasi]);
 
   if (!durum.aktif || durum.mod !== 'milyoner') {
+    if (oyunBitti) {
+      return (
+        <View style={styles.container}>
+          <View style={styles.baslikAlani}>
+            <Ionicons name={kazandin ? 'trophy' : 'sad-outline'} size={60} color={kazandin ? '#FFD700' : '#FF5252'} />
+            <Text style={[styles.baslik, { color: kazandin ? '#FFD700' : '#FF5252', marginTop: 20 }]}>
+              {kazandin ? 'Tebrikler!' : 'Üzgünüm, Kaybettin!'}
+            </Text>
+            <Text style={[styles.aciklama, { marginTop: 10, fontSize: 15, color: '#CCC' }]}>
+              {kazandin
+                ? '10 Milyon Puan Kazandınız!'
+                : `Kazanılan Puan: ${(durum.puan || 0).toLocaleString()}`}
+            </Text>
+            <TouchableOpacity
+              style={[styles.baslatButon, { marginTop: 30 }]}
+              onPress={() => { setOyunBitti(false); setKazandin(false); }}
+            >
+              <Ionicons name="arrow-back" size={24} color="#000" />
+              <Text style={styles.baslatMetin}>ANA MENÜ</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      );
+    }
     return (
       <View style={styles.container}>
         <View style={styles.baslikAlani}>
@@ -118,7 +147,7 @@ export default function MilyonerScreen() {
           ))}
         </View>
 
-        <TouchableOpacity style={styles.baslatButon} onPress={() => milyonerBaslat(secilenKategori)}>
+        <TouchableOpacity style={styles.baslatButon} onPress={() => { setOyunBitti(false); setKazandin(false); milyonerBaslat(secilenKategori); }}>
           <Ionicons name="play" size={24} color="#000" />
           <Text style={styles.baslatMetin}>BAŞLA</Text>
         </TouchableOpacity>
@@ -154,7 +183,8 @@ export default function MilyonerScreen() {
             puanEkle(durum.puan + (durum.bitisNoktalari?.[15] || 0));
             oyunSayisiEkle();
             kazanmaEkle();
-            Alert.alert('Tebrikler!', '10 Milyon Puan Kazandınız! 🏆');
+            setKazandin(true);
+            setOyunBitti(true);
             oyunuBitir();
           } else {
             cevapVer(cevapIndex);
@@ -165,7 +195,8 @@ export default function MilyonerScreen() {
           const kazanilan = durum.bitisNoktalari ? durum.bitisNoktalari[Math.max(0, durum.mevcutSoruIndex)] : 0;
           puanEkle(kazanilan);
           oyunSayisiEkle();
-          Alert.alert('Yanlış!', `Kazanılan puan: ${kazanilan.toLocaleString()}`);
+          setKazandin(false);
+          setOyunBitti(true);
           oyunuBitir();
         }
       }, 800);
@@ -264,7 +295,8 @@ export default function MilyonerScreen() {
           const kazanilan = durum.bitisNoktalari ? durum.bitisNoktalari[Math.max(0, durum.mevcutSoruIndex)] : 0;
           puanEkle(kazanilan);
           oyunSayisiEkle();
-          Alert.alert('Güvenli Soru', `Kazanılan: ${kazanilan.toLocaleString()} puan`);
+          setKazandin(true);
+          setOyunBitti(true);
           oyunuBitir();
         }}>
           <Ionicons name="shield-checkmark" size={20} color="#4FC3F7" />
