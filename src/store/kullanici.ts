@@ -1,35 +1,52 @@
 import { create } from 'zustand';
+import { Kullanici } from '../types';
 
-interface Kullanici {
-  toplam_kelime: number;
-  okunan_siir: number;
-  favori_sozluk: string[];
-  favori_siir: string[];
-  streak: number;
-  kelimeEkle: () => void;
-  siirEkle: () => void;
-  sozlukFavorile: (id: string) => void;
-  siirFavorile: (id: string) => void;
-}
+type KullaniciStore = {
+  kullanici: Kullanici;
+  puanEkle: (puan: number) => void;
+  oyunSayisiEkle: () => void;
+  kazanmaEkle: () => void;
+};
 
-export const useKullanici = create<Kullanici>((set) => ({
-  toplam_kelime: 0,
-  okunan_siir: 0,
-  favori_sozluk: [],
-  favori_siir: [],
-  streak: 1,
-  kelimeEkle: () => set((s) => ({ toplam_kelime: s.toplam_kelime + 1 })),
-  siirEkle: () => set((s) => ({ okunan_siir: s.okunan_siir + 1 })),
-  sozlukFavorile: (id) =>
-    set((s) => ({
-      favori_sozluk: s.favori_sozluk.includes(id)
-        ? s.favori_sozluk.filter((x) => x !== id)
-        : [...s.favori_sozluk, id],
+const varsayilanKullanici: Kullanici = {
+  id: '1',
+  isim: 'Oyuncu',
+  toplamPuan: 0,
+  oyunSayisi: 0,
+  kazanilanOyun: 0,
+  enYuksekPuan: 0,
+  rozetler: [],
+  seviye: 1,
+  deneyimPuani: 0,
+};
+
+export const kullaniciStore = create<KullaniciStore>((set) => ({
+  kullanici: varsayilanKullanici,
+
+  puanEkle: (puan) =>
+    set((state) => ({
+      kullanici: {
+        ...state.kullanici,
+        toplamPuan: state.kullanici.toplamPuan + puan,
+        enYuksekPuan: Math.max(state.kullanici.enYuksekPuan, puan),
+        deneyimPuani: state.kullanici.deneyimPuani + puan,
+        seviye: Math.floor((state.kullanici.deneyimPuani + puan) / 1000) + 1,
+      },
     })),
-  siirFavorile: (id) =>
-    set((s) => ({
-      favori_siir: s.favori_siir.includes(id)
-        ? s.favori_siir.filter((x) => x !== id)
-        : [...s.favori_siir, id],
+
+  oyunSayisiEkle: () =>
+    set((state) => ({
+      kullanici: {
+        ...state.kullanici,
+        oyunSayisi: state.kullanici.oyunSayisi + 1,
+      },
+    })),
+
+  kazanmaEkle: () =>
+    set((state) => ({
+      kullanici: {
+        ...state.kullanici,
+        kazanilanOyun: state.kullanici.kazanilanOyun + 1,
+      },
     })),
 }));
