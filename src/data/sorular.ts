@@ -1,70 +1,24 @@
 import { Soru } from '../types';
+import { osmanliTarihiSorulari } from './kategoriler/osmanli-tarihi';
+import { sairlerYazarlarSorulari } from './kategoriler/sairler-yazarlar';
+import { siirlerSorulari } from './kategoriler/siirler';
+import { romanHikayeSorulari } from './kategoriler/roman-hikaye';
+import { turkDiliSorulari } from './kategoriler/turk-dili';
+import { dunyaEdebiyatiSorulari } from './kategoriler/dunya-edebiyati';
+import { muzikSanatSorulari } from './kategoriler/muzik-sanat';
+import { atasozleriDeyimlerSorulari } from './kategoriler/atasozleri-deyimler';
+import { tarihKulturSorulari } from './kategoriler/tarih-kultur';
+import { bilimFelsefeSorulari } from './kategoriler/bilim-felsefe';
 
 export const sorular: Soru[] = [
-  // ─── ÇOK KOLAY (Milyoner 1-3) ───
-  { id: 'ck1', soru: 'Osmanlı Devleti\'nin kurucusu kimdir?', secenekler: ['Osman Gazi', 'Orhan Gazi', 'Fatih Sultan Mehmed', 'Kanuni Sultan Süleyman'], dogruCevap: 0, kategori: 'Osmanlı Tarihi', zorluk: 'cokKolay', bilgi: 'Osmanlı Devleti 1299 yılında Osman Gazi tarafından kurulmuştur.' },
-  { id: 'ck2', soru: 'İstanbul\'un fethi hangi yılda gerçekleşmiştir?', secenekler: ['1453', '1492', '1517', '1520'], dogruCevap: 0, kategori: 'Osmanlı Tarihi', zorluk: 'cokKolay', bilgi: 'Fatih Sultan Mehmed 29 Mayıs 1453\'te İstanbul\'u fethetmiştir.' },
-  { id: 'ck3', soru: 'Kanuni Sultan Süleyman hangi lakabıyla bilinir?', secenekler: ['Muhteşem Süleyman', 'Fatih', 'Yavuz', 'Kötü'], dogruCevap: 0, kategori: 'Osmanlı Tarihi', zorluk: 'cokKolay', bilgi: 'Kanuni Sultan Süleyman "Muhteşem Süleyman" olarak Batı\'da bilinir.' },
-  { id: 'ck4', soru: '"İstiklâl Marşı"nı kim yazmıştır?', secenekler: ['Mehmet Akif Ersoy', 'Yahya Kemal', 'Ziya Gökalp', 'Abdülhak Hâmit'], dogruCevap: 0, kategori: 'Şiirler', zorluk: 'cokKolay', bilgi: 'Mehmet Akif Ersoy 1921\'de İstiklâl Marşı\'nı yazmıştır.' },
-  { id: 'ck5', soru: 'Yunus Emre hangi asırda yaşamıştır?', secenekler: ['13. asır', '15. asır', '11. asır', '16. asır'], dogruCevap: 0, kategori: 'Şairler & Yazarlar', zorluk: 'cokKolay', bilgi: 'Yunus Emre (1240-1320) 13. asırda yaşamıştır.' },
-  { id: 'ck6', soru: 'Sabahattin Ali\'nin en ünlü eseri hangisidir?', secenekler: ['Kürk Mantolu Madonna', 'Saatleri Ayarlama Enstitüsü', 'İnce Memed', 'Yaban'], dogruCevap: 0, kategori: 'Roman & Hikaye', zorluk: 'cokKolay', bilgi: 'Sabahattin Ali\'nin "Kürk Mantolu Madonna" romanı en çok okunan eseridir.' },
-
-  // ─── KOLAY (Milyoner 4-5) ───
-  { id: 'k1', soru: 'Osmanlı Devleti\'nde ilk Divan-ı Hümayun hangi padişah döneminde kuruldu?', secenekler: ['Orhan Gazi', 'Osman Gazi', 'II. Murad', 'Fatih Sultan Mehmed'], dogruCevap: 0, kategori: 'Osmanlı Tarihi', zorluk: 'kolay', bilgi: 'İlk Divan-ı Hümayun Orhan Gazi döneminde Bursa\'da toplanmıştır.' },
-  { id: 'k2', soru: 'Osmanlı\'da "Divan-ı Hümayun" ne işe yarardı?', secenekler: ['Devlet yönetim kurulu', 'Saray mutfağı', 'Kütüphane', 'Hazine'], dogruCevap: 0, kategori: 'Osmanlı Tarihi', zorluk: 'kolay', bilgi: 'Divan-ı Hümayun, padişah başkanlığında toplanan devletin en yüksek yürütme ve yargı organıydı.' },
-  { id: 'k3', soru: 'Osmanlı Devleti\'nin son padişahı kimdir?', secenekler: ['VI. Mehmed Vahdettin', 'II. Abdülhamid', 'V. Mehmed Reşad', 'III. Selim'], dogruCevap: 0, kategori: 'Osmanlı Tarihi', zorluk: 'kolay', bilgi: 'VI. Mehmed Vahdettin Osmanlı\'nın son padişahıdır.' },
-  { id: 'k4', soru: 'Orhan Veli Kanık hangi edebi akımın öncülerindendir?', secenekler: ['Garip Hareketi', 'Milli Edebiyat', 'Servet-i Fünun', 'Fecr-i Ati'], dogruCevap: 0, kategori: 'Şairler & Yazarlar', zorluk: 'kolay', bilgi: 'Orhan Veli Kanık Garip Hareketi\'ni başlatmıştır.' },
-  { id: 'k5', soru: '"Beni candan usandırdı" şiiri kime aittir?', secenekler: ['Fuzûlî', 'Bâkî', 'Nedim', 'Yunus Emre'], dogruCevap: 0, kategori: 'Şiirler', zorluk: 'kolay', bilgi: 'Bu gazel Fuzûlî\'nin en ünlü gazellerinden biridir.' },
-  { id: 'k6', soru: '"Çalıkuşu" romanının yazarı kimdir?', secenekler: ['Reşat Nuri Güntekin', 'Halide Edib', 'Yakup Kadri', 'Sabahattin Ali'], dogruCevap: 0, kategori: 'Roman & Hikaye', zorluk: 'kolay', bilgi: 'Reşat Nuri Güntekin 1922\'de "Çalıkuşu" romanını yazmıştır.' },
-  { id: 'k7', soru: '"İnce Memed" romanını kim yazmıştır?', secenekler: ['Yaşar Kemal', 'Sabahattin Ali', 'Orhan Kemal', 'Kemal Tahir'], dogruCevap: 0, kategori: 'Roman & Hikaye', zorluk: 'kolay', bilgi: 'Yaşar Kemal\'in en ünlü eseri "İnce Memed" serisidir.' },
-  { id: 'k8', soru: 'Türkçe\'nin bilinen ilk yazılı metni hangisidir?', secenekler: ['Orhun Yazıtları', 'Divan-ı Lügat-it Türk', 'Kutadgu Bilig', 'Dede Korkut'], dogruCevap: 0, kategori: 'Türk Dili', zorluk: 'kolay', bilgi: 'Orhun Yazıtları (735) Türkçe\'nin bilinen en eski yazılı metinleridir.' },
-  { id: 'k9', soru: 'Divan-ı Lügat-it Türk\'ü kim yazmıştır?', secenekler: ['Kâşgarlı Mahmud', 'Yusuf Has Hacib', 'Ahmet Yesevi', 'Seyid Nesemi'], dogruCevap: 0, kategori: 'Türk Dili', zorluk: 'kolay', bilgi: 'Kâşgarlı Mahmud 1072-1074 arasında bu eseri yazmıştır.' },
-
-  // ─── ORTA ───
-  { id: 'o1', soru: 'Kanuni Sultan Süleyman\'ın Kanun namesi kaç maddeden oluşur?', secenekler: ['46 madde', '100 madde', '200 madde', '50 madde'], dogruCevap: 0, kategori: 'Osmanlı Tarihi', zorluk: 'orta', bilgi: 'Kanunname-i Âl-i Osman toplam 46 maddeden oluşmaktadır.' },
-  { id: 'o2', soru: 'Osmanlı Devleti\'nde "Tanzimat" ne zaman ilan edildi?', secenekler: ['1839', '1876', '1856', '1800'], dogruCevap: 0, kategori: 'Osmanlı Tarihi', zorluk: 'orta', bilgi: 'Tanzimat Fermanı 3 Kasım 1839\'da ilan edilmiştir.' },
-  { id: 'o3', soru: 'Hangi padişah "Adaletli" lakabıyla anılır?', secenekler: ['II. Mahmud', 'Abdülhamid II', 'Kanuni', 'Fatih'], dogruCevap: 0, kategori: 'Osmanlı Tarihi', zorluk: 'orta' },
-  { id: 'o4', soru: 'Fatih Sultan Mehmed kaç yaşında tahta çıktı?', secenekler: ['12', '18', '21', '15'], dogruCevap: 0, kategori: 'Osmanlı Tarihi', zorluk: 'orta' },
-  { id: 'o5', soru: '"Divan Şairi" olan Fuzûlî hangi dilde eser vermiştir?', secenekler: ['Osmanlıca, Arapça, Farsça', 'Sadece Osmanlıca', 'Türkçe ve Arapça', 'Farsça ve Azerice'], dogruCevap: 0, kategori: 'Şairler & Yazarlar', zorluk: 'orta', bilgi: 'Fuzûlî Osmanlıca, Arapça ve Farsça olmak üzere üç dilde eser vermiştir.' },
-  { id: 'o6', soru: '"Sultan-ı Şiir" lakabıyla bilinen şair kimdir?', secenekler: ['Bâkî', 'Fuzûlî', 'Nedim', 'Nef\'î'], dogruCevap: 0, kategori: 'Şairler & Yazarlar', zorluk: 'orta', bilgi: 'Bâkî (1526-1600) "Sultan-ı Şiir" lakabıyla tanınır.' },
-  { id: 'o7', soru: 'Bâkî\'nin "Kanuni Mersiyesi" hangi padişah için yazılmıştır?', secenekler: ['Kanuni Sultan Süleyman', 'Fatih Sultan Mehmed', 'Yavuz Sultan Selim', 'II. Mahmud'], dogruCevap: 0, kategori: 'Şiirler', zorluk: 'orta', bilgi: 'Bâkî, Kanuni Sultan Süleyman\'ın ölümü üzerine bu mersiyeyi yazmıştır.' },
-  { id: 'o8', soru: 'Nef\'î hangi türde şiir yazardı?', secenekler: ['Kasideler', 'Gazeller', 'Mesneviler', 'Koşmalar'], dogruCevap: 0, kategori: 'Şiirler', zorluk: 'orta', bilgi: 'Nef\'î kasideleriyle tanınır.' },
-  { id: 'o9', soru: 'Nâzım Hikmet hangi akımın temsilcisidir?', secenekler: ['Toplumcu Gerçekçilik', 'Garip', 'Servet-i Fünun', 'Milli Edebiyat'], dogruCevap: 0, kategori: 'Şiirler', zorluk: 'orta', bilgi: 'Nâzım Hikmet toplumcu gerçekçi akımın Türkiye\'deki en önemli temsilcisidir.' },
-  { id: 'o10', soru: 'Orhan Pamuk hangi romanı ile Nobel Edebiyat Ödülü aldı?', secenekler: ['Benim Adım Kırmızı', 'Cevdet Bey ve Oğulları', 'Masumiyet Müzesi', 'Kırmızı Saçlı Kadın'], dogruCevap: 0, kategori: 'Roman & Hikaye', zorluk: 'orta', bilgi: 'Orhan Pamuk 2006\'da Nobel Edebiyat Ödülü\'nü almıştır.' },
-  { id: 'o11', soru: 'Halikarnas Balıkçısı hangi şehirde yaşamıştır?', secenekler: ['Bodrum', 'İstanbul', 'Antalya', 'İzmir'], dogruCevap: 0, kategori: 'Roman & Hikaye', zorluk: 'orta', bilgi: 'Cevat Şakir Kabaağaçlı Bodrum\'a âşık olmuştur.' },
-  { id: 'o12', soru: '"Saati Ayarlama Enstitüsü" romanının yazarı kimdir?', secenekler: ['Ahmet Hamdi Tanpınar', 'Orhan Pamuk', 'Sabahattin Ali', 'Yaşar Kemal'], dogruCevap: 0, kategori: 'Roman & Hikaye', zorluk: 'orta', bilgi: 'Ahmet Hamdi Tanpınar\'ın bu eseri modern Türk edebiyatının klasiğidir.' },
-  { id: 'o13', soru: 'Kutadgu Bilig hangi dilde yazılmıştır?', secenekler: ['Eski Uygurca', 'Osmanlıca', 'Çagatayca', 'Türkmence'], dogruCevap: 0, kategori: 'Türk Dili', zorluk: 'orta', bilgi: 'Kutadgu Bilig Eski Uygurca yazılmıştır.' },
-  { id: 'o14', soru: 'Atatürk\'ün "Türk Dil Kurumu" hangi yılda kurulmuştur?', secenekler: ['1932', '1923', '1936', '1945'], dogruCevap: 0, kategori: 'Türk Dili', zorluk: 'orta', bilgi: 'Türk Dil Kurumu 12 Temmuz 1932\'de kurulmuştur.' },
-  { id: 'o15', soru: 'Shakespeare\'in en uzun oyunu hangisidir?', secenekler: ['Hamlet', 'Othello', 'Macbeth', 'Romeo ve Juliet'], dogruCevap: 0, kategori: 'Dünya Edebiyatı', zorluk: 'orta', bilgi: 'Hamlet Shakespeare\'in en uzun oyunudur.' },
-  { id: 'o16', soru: 'Dante Alighieri\'nin "İlahi Komedya"sı kaç ciltten oluşur?', secenekler: ['3 (Cehennem, Araf, Cennet)', '2', '4', '1'], dogruCevap: 0, kategori: 'Dünya Edebiyatı', zorluk: 'orta', bilgi: 'İlahi Komedya 3 ciltten oluşur.' },
-  { id: 'o17', soru: 'Nobel Edebiyat Ödülü ilk kez hangi yılda verilmiştir?', secenekler: ['1901', '1910', '1895', '1920'], dogruCevap: 0, kategori: 'Dünya Edebiyatı', zorluk: 'orta', bilgi: 'İlk Nobel Edebiyat Ödülü 1901\'de verilmiştir.' },
-  { id: 'o18', soru: 'Gabriel García Márquez hangi ülkedendir?', secenekler: ['Kolombiya', 'Meksika', 'Brezilya', 'Arjantin'], dogruCevap: 0, kategori: 'Dünya Edebiyatı', zorluk: 'orta', bilgi: 'Márquez Kolombiyalı yazardır.' },
-  { id: 'o19', soru: 'Türk Müziği\'nin "Bab-ı Hümayun" sanatçısı kimdir?', secenekler: ['Itrî', 'Dede Efendi', 'Hafız Burhan', 'Sadettin Heper'], dogruCevap: 0, kategori: 'Müzik & Sanat', zorluk: 'orta', bilgi: 'Buhurizâde Mustafa Itrî Türk klasik müziğinin en önemli bestekârlarından biridir.' },
-  { id: 'o20', soru: 'Osmanlı\'da minyatür sanatına ne denirdi?', secenekler: ['Tezhip', 'Hat', 'Ebru', 'Kalemkarı'], dogruCevap: 0, kategori: 'Müzik & Sanat', zorluk: 'orta', bilgi: 'Tezhip, altın ve gümüş kullanılarak yapılan bezeme sanatıdır.' },
-
-  // ─── ZOR ───
-  { id: 'z1', soru: 'Nedim hangi padişah döneminde yaşamıştır?', secenekler: ['III. Ahmed', 'Kanuni', 'II. Mahmud', 'Abdülhamid'], dogruCevap: 0, kategori: 'Şairler & Yazarlar', zorluk: 'zor', bilgi: 'Nedim (1681-1730) III. Ahmed döneminde divan şairliği yapmıştır.' },
-  { id: 'z2', soru: 'Ziya Gökalp hangi konuda eser vermiştir?', secenekler: ['Sosyoloji ve Kültür', 'Roman', 'Şiir', 'Tiyatro'], dogruCevap: 0, kategori: 'Şairler & Yazarlar', zorluk: 'zor', bilgi: 'Ziya Gökalp sosyolog, yazar ve şairdir.' },
-  { id: 'z3', soru: 'Halide Edib Adıvar hangi romanı ile tanınır?', secenekler: ['Vurun Kahpeye', 'Çalıkuşu', 'Kürk Mantolu Madonna', 'Sinekli Bakkal'], dogruCevap: 0, kategori: 'Şairler & Yazarlar', zorluk: 'zor', bilgi: 'Halide Edib Adıvar "Vurun Kahpeye" romanı ile tanınır.' },
-  { id: 'z4', soru: 'Necip Fazıl Kısakürek hangi dergiyi kurmuştur?', secenekler: ['Büyük Doğu', 'Ulus', 'Ulus', 'Tan'], dogruCevap: 0, kategori: 'Şairler & Yazarlar', zorluk: 'zor', bilgi: 'Necip Fazıl Kısakürek 1943\'te Büyük Doğu dergisini kurmuştur.' },
-  { id: 'z5', soru: '"Kürk Mantolu Madonna" romanının kahramanı kimdir?', secenekler: ['Raif Efendi', 'Mecnun', 'Hüseyin Rahmi', 'Kınalızade'], dogruCevap: 0, kategori: 'Roman & Hikaye', zorluk: 'zor', bilgi: 'Raif Efendi romanın başkahramanıdır.' },
-  { id: 'z6', soru: 'Sabahattin Ali\'nin "Kürk Mantolu Madonna"sı hangi ülkede geçer?', secenekler: ['Almanya', 'Türkiye', 'İtalya', 'Fransa'], dogruCevap: 0, kategori: 'Roman & Hikaye', zorluk: 'zor', bilgi: 'Romanın büyük bölümü Berlin\'de geçer.' },
-  { id: 'z7', soru: '"Tehlikeli Oyunlar" romanının yazarı kimdir?', secenekler: ['Oğuz Atay', 'Orhan Pamuk', 'Ahmet Hamdi Tanpınar', 'Yakup Kadri'], dogruCevap: 0, kategori: 'Roman & Hikaye', zorluk: 'zor', bilgi: 'Oğuz Atay postmodern Türk edebiyatının önemli isimlerinden biridir.' },
-  { id: 'z8', soru: 'Osmanlıca\'da "kitap" kelimesi nasıl yazılır?', secenekler: ['کتاب', 'قلم', 'دفتر', 'ورقه'], dogruCevap: 0, kategori: 'Türk Dili', zorluk: 'zor', bilgi: 'Osmanlıca\'da kitap Arapça kökenlidir.' },
-  { id: 'z9', soru: 'Türkçede ilk matbu eser hangisidir?', secenekler: ['Tuhfe-i Vâizîn', 'Divan-ı Lügat-it Türk', 'Kutadgu Bilig', 'Ahterî'], dogruCevap: 0, kategori: 'Türk Dili', zorluk: 'zor', bilgi: '1729\'da İbrahim Müteferrika tarafından basılmıştır.' },
-  { id: 'z10', soru: '"Ulysses" romanını kim yazmıştır?', secenekler: ['James Joyce', 'Virginia Woolf', 'Franz Kafka', 'Marcel Proust'], dogruCevap: 0, kategori: 'Dünya Edebiyatı', zorluk: 'zor', bilgi: 'James Joyce\'un "Ulysses" romanı modernist edebiyatın başyapıtlarından biridir.' },
-  { id: 'z11', soru: 'Osmanlı\'da "Ebru" sanatı neyrozu?', secenekler: ['Suda boya sanatı', 'Hat sanatı', 'Minyatür', 'Tezhip'], dogruCevap: 0, kategori: 'Müzik & Sanat', zorluk: 'zor', bilgi: 'Ebru, su üzerinde oluşturulan desenlerin kağıda aktarılması sanatıdır.' },
-  { id: 'z12', soru: 'Türk Tiyatrosu\'nun babası kimdir?', secenekler: ['Taziye', 'Kavuklu', 'Karagöz', 'Hacivat'], dogruCevap: 0, kategori: 'Müzik & Sanat', zorluk: 'zor', bilgi: 'Karagöz ve Hacivat Türk tiyatrosunun temelini oluşturur.' },
-
-  // ─── ÇOK ZOR ───
-  { id: 'cz1', soru: 'Osmanlı\'da "devşirme" sistemi neydi?', secenekler: ['Hristiyan çocuklarının eğitimi', 'Asker toplama', 'Vergi toplama', 'Ticaret'], dogruCevap: 0, kategori: 'Osmanlı Tarihi', zorluk: 'cokZor', bilgi: 'Devşirme sistemi Hristiyan çocuklarının Müslümanlaştırılıp devlete hizmet ettirilmesiydi.' },
-  { id: 'cz2', soru: 'Kanuni Sultan Süleyman\'ın Kanun namesi kaç maddeden oluşur?', secenekler: ['46 madde', '100 madde', '200 madde', '50 madde'], dogruCevap: 0, kategori: 'Osmanlı Tarihi', zorluk: 'cokZor', bilgi: 'Kanunname-i Âl-i Osman toplam 46 maddeden oluşmaktadır.' },
-  { id: 'cz3', soru: 'Nef\'î kasideleriyle tanınır, sert ve hicivli üslubuyla bilinir. Hangi kelime onun üslubunu en iyi tanımlar?', secenekler: ['Hiciv', 'Methiye', 'Gazel', 'Kaside'], dogruCevap: 0, kategori: 'Şiirler', zorluk: 'cokZor', bilgi: 'Nef\'î particularly hicivli üslubuyla tanınır.' },
-  { id: 'cz4', soru: 'Osmanlı\'da "Enderûn" neyin merkeziydi?', secenekler: ['Saray okulu', 'Cami', 'Kütüphane', 'Tiyatro'], dogruCevap: 0, kategori: 'Müzik & Sanat', zorluk: 'cokZor', bilgi: 'Enderûn, sarayın iç okuluydu.' },
-  { id: 'cz5', soru: 'Piri Reis\'in 1513 tarihli haritası neyi gösterir?', secenekler: ['Amerika kıtası', 'Avrupa', 'Afrika', 'Asya'], dogruCevap: 0, kategori: 'Bilim & Felsefe', zorluk: 'cokZor', bilgi: 'Piri Reis\'in haritası Amerika kıtasını gösteren ilk haritalardan biridir.' },
-  { id: 'cz6', soru: 'Osmanlıca\'da noktalama işaretleri var mıydı?', secenekler: ['Hayır, yoktu', 'Evet, vardı', 'Sadece virgül', 'Sadece nokta'], dogruCevap: 0, kategori: 'Türk Dili', zorluk: 'cokZor', bilgi: 'Osmanlıca\'da noktalama işareti bulunmazdı.' },
-  { id: 'cz7', soru: 'El-Biruni hangi alanda çığır açmıştır?', secenekler: ['Astronomi ve Matematik', 'Tıp', 'Felsefe', 'Şiir'], dogruCevap: 0, kategori: 'Bilim & Felsefe', zorluk: 'cokZor', bilgi: 'El-Biruni astronomi, matematik ve coğrafya alanlarında çığır açmıştır.' },
-  { id: 'cz8', soru: 'Matrakçı Nasuh hangi konuda uzmanlaşmıştır?', secenekler: ['Haritacılık ve Matematik', 'Tıp', 'Felsefe', 'Şiir'], dogruCevap: 0, kategori: 'Bilim & Felsefe', zorluk: 'cokZor', bilgi: 'Matrakçı Nasuh haritacılık ve matematik alanlarında çığır açmıştır.' },
-  { id: 'cz9', soru: 'Ali Kuşçu hangi bilim adamıdır?', secenekler: ['Matematikçi ve Astronom', 'Tıp', 'Felsefe', 'Şiir'], dogruCevap: 0, kategori: 'Bilim & Felsefe', zorluk: 'cokZor', bilgi: 'Ali Kuşçu matematik ve astronomi alanında çalışmıştır.' },
-  { id: 'cz10', soru: 'Osmanlı\'da "Tıp" alanında en önemli isim hangisidir?', secenekler: ['İbn-i Sina', 'Piri Reis', 'Evliya Çelebi', 'Matrakçı Nasuh'], dogruCevap: 0, kategori: 'Bilim & Felsefe', zorluk: 'cokZor', bilgi: 'İbn-i Sina tıp alanındaki eserleriyle dünya çapında tanınır.' },
+  ...osmanliTarihiSorulari,
+  ...sairlerYazarlarSorulari,
+  ...siirlerSorulari,
+  ...romanHikayeSorulari,
+  ...turkDiliSorulari,
+  ...dunyaEdebiyatiSorulari,
+  ...muzikSanatSorulari,
+  ...atasozleriDeyimlerSorulari,
+  ...tarihKulturSorulari,
+  ...bilimFelsefeSorulari,
 ];

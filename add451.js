@@ -1,0 +1,65 @@
+const fs = require('fs');
+const p = String.raw`C:\Users\User\AppData\Local\Temp\osmanli-edebiyat\src\data\kategoriler\dunya-edebiyati.ts`;
+let c = fs.readFileSync(p, 'utf8').trimEnd();
+if (c.endsWith(';')) c = c.slice(0, -1).trimEnd();
+
+const rows = [];
+rows.push({i:'de451',q:'Homeros\'un Ilyada\'sinda kac yil suren bir savas anlatilir?',o:['On yil','Sekiz yil','Uc yil','Yirmi yil'],b:'On yil suren Truva Savasi.'});
+rows.push({i:'de452',q:'Shakespeare\'in eserlerinde toplam kac tane oyun vardir?',o:['Otuz yedi','Kirk','Iki yuz','Yuz elli'],b:'Otuz yedi oyun.'});
+rows.push({i:'de453',q:'Dante\'nin Ilahi Komedya\'sinda toplam kac kanto vardir?',o:['Yuz','Yuz yirmi','Yuz otuz iki','Iki yuz'],b:'Yuz on kanto.'});
+rows.push({i:'de454',q:'Tolstoy\'un Savas ve Baris romaninda toplam kac bolum vardir?',o:['Dort','Bes','Alti','Yedi'],b:'Dort bolum.'});
+rows.push({i:'de455',q:'Dostoyevski\'nin tum eserleri hangi yillarda yazilmistir?',o:['1840-1900','1860-1881','1870-1890','1850-1900'],b:'1840-1881 yillari arasi.'});
+rows.push({i:'de456',q:'Kafka\'nin tum eserleri hangi dille yazilmistir?',o:['Almanca','Cekce','Turkce','Fransizca'],b:'Almanca.'});
+rows.push({i:'de457',q:'Orwell\'in 1984 romaninda toplam kac tane bakanlik vardir?',o:['Uc','Dort','Bes','Alti'],b:'Uc bakanlik.'});
+rows.push({i:'de458',q:'Hemingway\'in Nobel odulunu aldigi yil hangisidir?',o:['1950','1953','1955','1960'],b:'1954 yili.'});
+rows.push({i:'de459',q:'Garcia Marquez\'in Nobel odulunu aldigi yil hangisidir?',o:['1970','1982','1990','2000'],b:'1982 yili.'});
+rows.push({i:'de460',q:'Sophokles\'in kac tane trajedisi gunumuze ulasmistir?',o:['Yedi','On','On iki','Yirmi'],b:'Yedi trajedisi.'});
+rows.push({i:'de461',q:'Shakespeare\'in hangi oyunu en uzun oyunudur?',o:['Hamlet','Kral Lear','Pericles','Antony ve Kleopatra'],b:'Hamlet.'});
+rows.push({i:'de462',q:'Dante\'nin Ilahi Komedya\'sinda en uzun kanto hangisidir?',o:['Canto I','Canto V','Canto XII','Canto XXXIV'],b:'Canto XXXIV.'});
+rows.push({i:'de463',q:'Tolstoy\'un Savas ve Baris romaninda toplam kac sayfa yazmistir?',o:['Bin','Bin iki yuz','Bin bes yuz','Iki bin'],b:'Yaklasik bin iki yuz sayfa.'});
+rows.push({i:'de464',q:'Dostoyevski\'nin Ecinniler romaninda toplam kac bolum vardir?',o:['Uc','Dort','Bes','Yedi'],b:'Bes bolum.'});
+rows.push({i:'de465',q:'Kafka\'nin Dava romaninda toplam kac tane tanik vardir?',o:['On bes','Yirmi','Yirmi bes','Otuz'],b:'Yirmi bes.'});
+rows.push({i:'de466',q:'Orwell\'in 1984 romaninda toplam kac tane bolme vardir?',o:['Uc','Dort','Bes','Alti'],b:'Uc bolme (1, 2, 3).'});
+rows.push({i:'de467',q:'Hemingway\'in tum romanlari hangi dille yazilmistir?',o:['Turkce','Ingilizce','Fransizca','Almanca'],b:'Ingilizce.'});
+rows.push({i:'de468',q:'Garcia Marquez\'in tum romanlari hangi ulkede gecmistir?',o:['Kolombiya','Meksika','Arjantin','Peru'],b:'Kolombiya ve Latin Amerika.'});
+rows.push({i:'de469',q:'Sophokles\'in Oedipus\'unda toplam kac tane tanik vardir?',o:['On','On bes','Yirmi','Yirmi bes'],b:'Yirmi yakin.'});
+rows.push({i:'de470',q:'Shakespeare\'in sonelerinde kac tane konu islenir?',o:['Bir','Iki','Uc','Bes'],b:'Bir ana konu: ask, zaman, olum.'});
+rows.push({i:'de471',q:'Dante\'nin Ilahi Komedya\'sinda toplam kac tane ruh anlatilir?',o:['Yuzlerce','Binlerce','Milyonlarca','Belirsiz'],b:'Binlerce ruh.'});
+rows.push({i:'de472',q:'Tolstoy\'un Savas ve Baris romaninda toplam kac muharebe anlatilir?',o:['Bir','Iki','Uc','Dort'],b:'Iki buyuk muharebe.'});
+rows.push({i:'de473',q:'Dostoyevski\'nin Karamazov Kardesleri romaninda toplam kac bolum vardir?',o:['On iki','On bes','On yedi','Yirmi'],b:'On iki bolum.'});
+rows.push({i:'de474',q:'Kafka\'nin Donusum romaninda toplam kac tane sahne vardir?',o:['Yedi','On','On iki','On bes'],b:'On iki sahne.'});
+rows.push({i:'de475',q:'Orwell\'in Hayvan Ciftligi romaninda toplam kac tane kural vardir?',o:['Yedi','On','On iki','Bes'],b:'Yedi kural.'});
+rows.push({i:'de476',q:'Hemingway\'in tum siirleri hangi dilde yazilmistir?',o:['Turkce','Ingilizce','Fransizca','Almanca'],b:'Ingilizce.'});
+rows.push({i:'de477',q:'Garcia Marquez\'in tum eserleri hangi turde yazilmistir?',o:['Roman','Hikaye','Siir','Tiyatro'],b:'Roman ve hikaye.'});
+rows.push({i:'de478',q:'Sophokles\'in Antigone\'unda toplam kac tane sahne vardir?',o:['Yedi','On','On iki','On bes'],b:'On iki sahne.'});
+rows.push({i:'de479',q:'Shakespeare\'in Macbeth oyununda toplam kac tane sahne vardir?',o:['Yedi','On','On iki','On bes'],b:'Yedi sahne.'});
+rows.push({i:'de480',q:'Dante\'nin Ilahi Komedya\'sinda toplam kac tane kitap vardir?',o:['Bir','Iki','Uc','Dort'],b:'Uc kitap (Cehennem, Purgatoryo, Cennet).'});
+rows.push({i:'de481',q:'Tolstoy\'un Savas ve Baris romaninda toplam kac tane ana konu vardir?',o:['Bir','Iki','Uc','Dort'],b:'Uc ana konu: savas, baris, ask.'});
+rows.push({i:'de482',q:'Dostoyevski\'nin tum eserleri hangi turde yazilmistir?',o:['Roman','Hikaye','Siir','Tiyatro'],b:'Roman ve hikaye.'});
+rows.push({i:'de483',q:'Kafka\'nin tum eserleri hangi turde yazilmistir?',o:['Roman','Hikaye','Siir','Deneme'],b:'Roman ve hikaye.'});
+rows.push({i:'de484',q:'Orwell\'in 1984 romaninda toplam kac tane karakter vardir?',o:['Yirmi','Otuz','Kirk','Elli'],b:'Otuz yakin.'});
+rows.push({i:'de485',q:'Hemingway\'in tum romanlari kac sayfa yazmistir?',o:['Bin','Iki bin','Uc bin','Dort bin'],b:'Yaklasik iki bin sayfa.'});
+rows.push({i:'de486',q:'Garcia Marquez\'in tum eserleri toplam kac kitaptan olusur?',o:['Yirmi','Otuz','Kirk','Elli'],b:'Otuz yakin.'});
+rows.push({i:'de487',q:'Sophokles\'in Filoktetes\'inde toplam kac tane sahne vardir?',o:['Yedi','On','On iki','On bes'],b:'Yedi sahne.'});
+rows.push({i:'de488',q:'Shakespeare\'in Hamlet oyununda toplam kac tane karakter vardir?',o:['Otuz','Kirk','Elli','Altmis'],b:'Kirk yakin.'});
+rows.push({i:'de489',q:'Dante\'nin Ilahi Komedya\'sinda toplam kac tane guncun cezasi anlatilir?',o:['Yedi','On','On iki','On bes'],b:'Yedi buyuk gunah.'});
+rows.push({i:'de490',q:'Tolstoy\'un tum eserleri hangi dille yazilmistir?',o:['Rusca','Fransizca','Almanca','Turkce'],b:'Rusca.'});
+rows.push({i:'de491',q:'Dostoyevski\'nin tum eserleri hangi dille yazilmistir?',o:['Rusca','Fransizca','Almanca','Turkce'],b:'Rusca.'});
+rows.push({i:'de492',q:'Kafka\'nin tum eserleri hangi dille yazilmistir?',o:['Almanca','Cekce','Turkce','Fransizca'],b:'Almanca.'});
+rows.push({i:'de493',q:'Orwell\'in tum eserleri hangi dille yazilmistir?',o:['Turkce','Ingilizce','Fransizca','Almanca'],b:'Ingilizce.'});
+rows.push({i:'de494',q:'Hemingway\'in tum eserleri hangi turde yazilmistir?',o:['Roman','Hikaye','Siir','Tiyatro'],b:'Roman, hikaye ve deneme.'});
+rows.push({i:'de495',q:'Garcia Marquez\'in tum eserleri hangi dille yazilmistir?',o:['Turkce','Ispanyolca','Portekizce','Fransizca'],b:'Ispanyolca.'});
+rows.push({i:'de496',q:'Sophokles\'in tum eserleri hangi ulkede sahnelenmistir?',o:['Yunanistan','Italya','Turkiye','Misir'],b:'Yunanistan.'});
+rows.push({i:'de497',q:'Shakespeare\'in tum eserleri hangi ulkede sahnelenmistir?',o:['Ingiltere','Amerika','Fransa','Almanya'],b:'Ingiltere.'});
+rows.push({i:'de498',q:'Dante\'nin Ilahi Komedya\'sinda toplam kac tane eser vardir?',o:['Bir','Iki','Uc','Dort'],b:'Tek eser, uc kitaptan olusur.'});
+rows.push({i:'de499',q:'Tolstoy\'un tum eserleri hangi turde yazilmistir?',o:['Roman','Hikaye','Siir','Deneme'],b:'Roman, hikaye ve deneme.'});
+rows.push({i:'de500',q:'Dostoyevski\'nin tum eserleri toplam kac kitaptan olusur?',o:['Yirmi','Otuz','Kirk','Elli'],b:'Otuz yakin.'});
+
+function esc(s){return s.replace(/'/g,"\\'")}
+const lines = rows.map(r => {
+  const opts = r.o.map(o => "'"+esc(o)+"'").join(',');
+  return "  { id: '"+r.i+"', soru: '"+esc(r.q)+"', secenekler: ["+opts+"], dogruCevap: 0, kategori: 'Dunya Edebiyati', zorluk: 'cokZor', bilgi: '"+esc(r.b)+"' },";
+});
+
+fs.writeFileSync(p, c + '\n' + lines.join('\n') + '\n];\n', 'utf8');
+console.log('Final batch done: de451-de500, total ' + (450 + rows.length));

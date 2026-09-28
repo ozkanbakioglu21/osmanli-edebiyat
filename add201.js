@@ -1,0 +1,65 @@
+const fs = require('fs');
+const p = String.raw`C:\Users\User\AppData\Local\Temp\osmanli-edebiyat\src\data\kategoriler\dunya-edebiyati.ts`;
+let c = fs.readFileSync(p, 'utf8').trimEnd();
+if (c.endsWith(';')) c = c.slice(0, -1).trimEnd();
+
+const rows = [];
+rows.push({i:'de201',q:'Homeros\'un Odysseia\'sinda Odysseus\'un karisinin adi nedir?',o:['Penelope','Helen','Circe','Calypso'],b:'Penelope, Odysseus\'un karisidir.'});
+rows.push({i:'de202',q:'Shakespeare\'in Romeo ve Juliet oyununda Juliet kac yasindadir?',o:['On uc','On dort','On bes','On alti'],b:'Juliet, on uc yasindadir.'});
+rows.push({i:'de203',q:'Dante\'nin Ilahi Komedya\'sinda Virgilius Dante\'ye ne ogretir?',o:['Bilim','Erdem','Siir','Sevgi'],b:'Virgilius, Dante\'ye bilgelik ogretir.'});
+rows.push({i:'de204',q:'Tolstoy\'un Savas ve Baris romaninda Pierre Bezukhov kimdir?',o:['Bir aristokrat','Bir general','Bir cifci','Bir ogretmen'],b:'Aristokrat bir karakterdir.'});
+rows.push({i:'de205',q:'Dostoyevski\'nin Suoc ve Ceza romaninda Sonya kimdir?',o:['Bir fahiise','Bir ogretmen','Bir kralice','Bir hemfire'],b:'Fahiise ama iyi kalpli bir kizdir.'});
+rows.push({i:'de206',q:'Kafka\'nin Donusum romaninda Gregor\'un kiz kardesinin adi nedir?',o:['Grete','Franz','Kafka','Amalia'],b:'Grete, Gregor\'un kiz kardesidir.'});
+rows.push({i:'de207',q:'Orwell\'in 1984 romaninda Big Brother\'in slogani nedir?',o:['Baris savas','Ozgurluk kulluk','Esitlik kardeslik','Guvenlik huzur'],b:'Savas baris, ozgurluk kulluk.'});
+rows.push({i:'de208',q:'Hemingway\'in Kimse Icin Zil Calmaz romaninda Robert Jordan kimdir?',o:['Bir ogretmen','Bir asker','Bir gazeteci','Bir doktor'],b:'Amerikali bir ogretmen ve asker.'});
+rows.push({i:'de209',q:'Garcia Marquez\'in Yuzyillik Yalinlik romaninda Melquiades kimdir?',o:['Bir kehanetci','Bir bilim insani','Bir ganimetci','Bir papaz'],b:'Bilge bir kehanetci.'});
+rows.push({i:'de210',q:'Sophokles\'in Kral Oedipus\'unda Tiresias kimdir?',o:['Bir kahin','Bir general','Bir kral','Bir prens'],b:'Kor kahin Tiresias.'});
+rows.push({i:'de211',q:'Shakespeare\'in 12. Gece oyununda Viola kimdir?',o:['Bir kadin','Bir erkek','Bir prens','Bir korsan'],b:'Bir kadin, erkek kiyafeti giyer.'});
+rows.push({i:'de212',q:'Dante\'nin Ilahi Komedya\'sinda Limbo\'da kimler bulunur?',o:['Gunahkarlar','Onaylanmamis ruhlar','Azizler','Melekler'],b:'Onaylanmamis ruhlar.'});
+rows.push({i:'de213',q:'Tolstoy\'un Savas ve Baris romaninda Kutuzov kimdir?',o:['Rus generali','Fransiz generali','Osmanli generali','Prusya generali'],b:'Rus generali Kutuzov.'});
+rows.push({i:'de214',q:'Dostoyevski\'nin Budala romaninda Myskin kimdir?',o:['Bir deli','Bir aristokrat','Bir ogretmen','Bir papaz'],b:'Onurlu ve saf bir aristokrat.'});
+rows.push({i:'de215',q:'Kafka\'nin Dava romaninda mahkeme nasil bir yerdir?',o:['Resmi bir kurum','Gizli ve karanlik','Acik ve aydinlik','Disarida'],b:'Gizli ve karanlik bir yer.'});
+rows.push({i:'de216',q:'Orwell\'in 1984 romaninda Thought Police ne yapar?',o:['Dusunceleri izler','Hapsede atar','Iskence yapar','Oldurur'],b:'Dusunceleri izler ve cezalandirir.'});
+rows.push({i:'de217',q:'Hemingway\'in Serseri ve Kizi romaninda Jake Barnes kimdir?',o:['Bir gazeteci','Bir asker','Bir balikci','Bir diplomat'],b:'Yarali bir gazeteci.'});
+rows.push({i:'de218',q:'Garcia Marquez\'in Yuzyillik Yalinlik romaninda Jose Arcadio kimdir?',o:['Bir bilim insani','Bir ganimetci','Bir cifci','Bir kral'],b:'Bilim merakli bir cifci.'});
+rows.push({i:'de219',q:'Sophokles\'in Oedipus\'unda Jokasta kimdir?',o:['Oedipus\'un karisi','Oedipus\'un annesi','Oedipus\'un kizi','Oedipus\'un kardesi'],b:'Oedipus\'un karisi ve annesi.'});
+rows.push({i:'de220',q:'Shakespeare\'in Hamlet oyununda Yorick kimdir?',o:['Bir palyaco','Bir kral','Bir general','Bir papaz'],b:'Kraliyet palyacosu.'});
+rows.push({i:'de221',q:'Dante\'nin Ilahi Komedya\'sinda Canto XXVI\'te Ulysses\'in kaderi nedir?',o:['Olmek','Denizde kaybolmak','Cehenneme dusmek','Cennete gitmek'],b:'Denizde kaybolup olur.'});
+rows.push({i:'de222',q:'Tolstoy\'un Savas ve Baris romaninda Dolokhov kimdir?',o:['Bir asker','Bir aristokrat','Bir cifci','Bir ogretmen'],b:'Cesur bir Rus askeri.'});
+rows.push({i:'de223',q:'Dostoyevski\'nin Karamazov Kardesleri romaninda Dmitri kimdir?',o:['Bir ogretmen','Bir asker','Bir papaz','Bir avukat'],b:'Tutkulu ve sinirli bir asker.'});
+rows.push({i:'de224',q:'Kafka\'nin Sato romaninda K. nerede calisir?',o:['Bir kalede','Bir ofiste','Bir fabrikada','Bir okulda'],b:'Bir kalede calisir.'});
+rows.push({i:'de225',q:'Orwell\'in Hayvan Ciftligi romaninda Snowball kimdir?',o:['Bir domuz','Bir at','Bir kopek','Bir kus'],b:'Devrimci bir domuz.'});
+rows.push({i:'de226',q:'Hemingway\'in Veda Silahi romaninda Frederic Henry kimdir?',o:['Bir ogretmen','Bir asker','Bir doktor','Bir gazeteci'],b:'Amerikali bir ambulans soforu.'});
+rows.push({i:'de227',q:'Garcia Marquez\'in Kitapcilar Sultani\'nde Florentino Ariza kimdir?',o:['Bir kitapci','Bir gemicaptani','Bir ogretmen','Bir doktor'],b:'Romantik bir gemicaptani.'});
+rows.push({i:'de228',q:'Sophokles\'in Elektra\'sinda Elektra\'nin kardesinin adi nedir?',o:['Orestes','Haemon','Creon','Theseus'],b:'Orestes, Elektra\'nin kardesidir.'});
+rows.push({i:'de229',q:'Shakespeare\'in Julius Caesar oyununda Brutus neden Caesar\'i oldurur?',o:['Ozgurluk icin','Intikam icin','Para icin','Guc icin'],b:'Roma ozgurlugu icin.'});
+rows.push({i:'de230',q:'Dante\'nin Ilahi Komedya\'sinda Purgatoryo\'da ruhlar ne yapar?',o:['Iskence ceker','Gunahlarindan arinir','Cennete gider','Cehenneme duser'],b:'Gunahlarindan arinirlar.'});
+rows.push({i:'de231',q:'Tolstoy\'un Savas ve Baris romaninda Andrei Bolkonsky kimdir?',o:['Bir prens','Bir general','Bir cifci','Bir ogretmen'],b:'Onurlu bir Rus prensi.'});
+rows.push({i:'de232',q:'Dostoyevski\'nin Ecinniler romaninda Stavrogin kimdir?',o:['Bir devrimci','Bir aristokrat','Bir general','Bir ogretmen'],b:'Guclu ve karanlik bir aristokrat.'});
+rows.push({i:'de233',q:'Kafka\'nin Donusum romaninda aile Gregor\'a nasil davranir?',o:['Sevgiyle','Ilgisizce','Kotu','Soguk'],b:'Gitgide daha kotu davranirlar.'});
+rows.push({i:'de234',q:'Orwell\'in 1984 romaninda Newspeak nedir?',o:['Yeni dil','Yeni yasa','Yeni parti','Yeni sehir'],b:'Kontrol icin yaratilmis yeni dil.'});
+rows.push({i:'de235',q:'Hemingway\'in Sun Does Rise romaninda Robert Cohn kimdir?',o:['Bir boksor','Bir ogretmen','Bir gazeteci','Bir doktor'],b:'Eski boksor bir yazar.'});
+rows.push({i:'de236',q:'Garcia Marquez\'in Yuzyillik Yalinlik romaninda Remedios kacinci kisidir?',o:['Birinci','Ikinci','Ucuncu','Dorduncu'],b:'Ucuncu Remedios, guzel olan.'});
+rows.push({i:'de237',q:'Sophokles\'in Antigone\'unda Antigone neden oldurulur?',o:['Cesedi gomdugu icin','Hirsizlik icin','Ihanet icin','Yalan soyledigi icin'],b:'Erkek kardesinin cesedini gomdugu icin.'});
+rows.push({i:'de238',q:'Shakespeare\'in Kral Lear oyununda Cordelia kimdir?',o:['Lear\'in kizi','Lear\'in karisi','Lear\'in kardesi','Lear\'in annesi'],b:'Lear\'in en kucuk ve sadik kizi.'});
+rows.push({i:'de239',q:'Dante\'nin Ilahi Komedya\'sinda Beatrice Dante\'yi nereye goturur?',o:['Cehenneme','Purgatoryo','Cennete','Limbo\'ya'],b:'Cennete goturur.'});
+rows.push({i:'de240',q:'Tolstoy\'un Anna Karenina romaninda Vronsky hangi ulkenin subayidir?',o:['Rusya','Fransa','Ingiltere','Avusturya'],b:'Rus subayidir.'});
+rows.push({i:'de241',q:'Dostoyevski\'nin Suoc ve Ceza romaninda Porfiry kimdir?',o:['Bir hakim','Bir avukat','Bir dedektif','Bir papaz'],b:'Zeki bir sorusturma hakimi.'});
+rows.push({i:'de242',q:'Kafka\'nin Sato romaninda K.\'nin ev sahibinin adi nedir?',o:['Herr Barnabas','Herr Klamm','Herr Galater','Herr Seneschal'],b:'Herr Barnabas.'});
+rows.push({i:'de243',q:'Orwell\'in 1984 romaninda Room 101 nedir?',o:['Bir oda','Bir hapishane','Bir iskence odasi','Bir sinif'],b:'Kisisel korkularin oldugu iskence odasi.'});
+rows.push({i:'de244',q:'Hemingway\'in Veda Silahi romaninda Italian cephede neler olur?',o:['Zafer','Yenilgi','Baris','Donus'],b:'Yenilgi ve cekilme.'});
+rows.push({i:'de245',q:'Garcia Marquez\'in Kolera Gunlerinde Ask romaninda kac yil beklenir?',o:['On yil','Yirmi yil','Otuz yil','Kirk yil'],b:'Yirmi yil beklenir.'});
+rows.push({i:'de246',q:'Sophokles\'in Oedipus\'unda Oedipus gozlerini neden kazar?',o:['Gorunmesini istemez','Sucluluktan','Delilikten','Guzelligin hatirina'],b:'Gordugu seylerden dolayi sucluluk hisseder.'});
+rows.push({i:'de247',q:'Shakespeare\'in Hamlet oyununda Ophelia\'nin babasi kimdir?',o:['Polonius','Claudius','Laertes','Horatio'],b:'Polonius, Ophelia\'nin babasidir.'});
+rows.push({i:'de248',q:'Dante\'nin Ilahi Komedya\'sinda Canto XXXIII\'de Ugolino ne yapar?',o:['Aglar','Guler','Oturur','Kosar'],b:'Aglar ve aci ceker.'});
+rows.push({i:'de249',q:'Tolstoy\'un Savas ve Baris romaninda Speransky kimdir?',o:['Bir general','Bir bakan','Bir papaz','Bir ogretmen'],b:'Rus devlet adami.'});
+rows.push({i:'de250',q:'Dostoyevski\'nin Karamazov Kardesleri romaninda Ivan\'in ateist gorusleri neleri etkiler?',o:['Ailesini','Dostlarini','Toplumu','Hukuku'],b:'Tum cevresini etkiler.'});
+
+function esc(s){return s.replace(/'/g,"\\'")}
+const lines = rows.map(r => {
+  const opts = r.o.map(o => "'"+esc(o)+"'").join(',');
+  return "  { id: '"+r.i+"', soru: '"+esc(r.q)+"', secenekler: ["+opts+"], dogruCevap: 0, kategori: 'Dunya Edebiyati', zorluk: 'orta', bilgi: '"+esc(r.b)+"' },";
+});
+
+fs.writeFileSync(p, c + '\n' + lines.join('\n') + '\n];\n', 'utf8');
+console.log('Batch 2 done: de201-de250, total 250');
